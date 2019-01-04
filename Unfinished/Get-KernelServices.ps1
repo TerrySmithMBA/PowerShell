@@ -1,4 +1,3 @@
-
 $cred = Get-Credential
 clear
 $GoodImage = "3ware
@@ -193,11 +192,11 @@ Wof
         
         
 $baseline = Get-ItemProperty HKLM:\SYSTEM\CurrentControlSet\Services\* | ForEach-Object {if ($_.start -eq 0) {$_.pschildname}} | out-string
-$RemotebabyList = $baseline.split("`n") | Where-Object {$GoodImage.split("`n") -notcontains $_} | out-string
-$RemotebabyList | Out-String 
-    }
-
+babyList = $baseline.split("`n") | Where-Object {$GoodImage.split("`n") -notcontains $_} | out-string
+    } >> $Remotebabylist
+    $Remotebabylist = $Remotebabylist | Out-String
+    $babyList.split("`n") | Where-Object {$Remotebabylist.split("`n") -notcontains $_}
 }
 
 
-$babyList.split("`n") | Where-Object {$Remotebabylist.split("`n") -notcontains $_}
+
