@@ -51,7 +51,7 @@ foreach ($Process in $ProcessList){
                  Write-Host "     - smss.exe should have a User of SYSTEM or NT AUTHORITY.`n"
         }
 
-        if ($Process.ProcessName -eq "services.exe" -and ($Path -eq "C:\windows\system32\services.exe")){
+        if ($Process.ProcessName -eq "services.exe" -and ($Path -eq "C:\windows\system32\services.exe"))
             {    }
         elseif ($Path -ne "C:\windows\system32\services.exe")   
                  
@@ -77,7 +77,7 @@ foreach ($Process in $ProcessList){
                  Write-Host "     - There should only be one instance of wininit.exe running.`n"
         }  
 
-        if ($Process.ProcessName -eq "wininit.exe" -and ($Path -eq "C:\windows\system32\wininit.exe")){
+        if ($Process.ProcessName -eq "wininit.exe" -and ($Path -eq "C:\windows\system32\wininit.exe"))
             {    }
         elseif ($Path -ne "C:\windows\system32\wininit.exe")   
                  
@@ -111,7 +111,7 @@ foreach ($Process in $ProcessList){
                  Write-Host "     - winlogon.exe should have a User of SYSTEM or NT AUTHORITY.`n"
         }
 
-        if ($Process.ProcessName -eq "winlogon.exe" -and ($Path -eq "C:\windows\system32\winlogon.exe")){
+        if ($Process.ProcessName -eq "winlogon.exe" -and ($Path -eq "C:\windows\system32\winlogon.exe"))
             {    }
         elseif ($Path -ne "C:\windows\system32\winlogon.exe")   
                  
@@ -137,9 +137,9 @@ foreach ($Process in $ProcessList){
                  Write-Host "     - csrss.exe should have a User of SYSTEM or NT AUTHORITY.`n"
         } 
 
-        if ($Process.ProcessName -eq "csrss.exe" -and ($Path -eq "C:\windows\system32\csrss.exe")){
-            {    }
-        elseif ($Path -ne "C:\windows\system32\csrss.exe")   
+        if ($Process.ProcessName -eq "csrss.exe" -and ($Path -eq "C:\windows\system32\csrss.exe")){    
+        }
+        elseif ($Path -ne "C:\windows\system32\csrss.exe"){
                  
                  #csrss.exe: Path = C:\windows\system32\csrss.exe
                  Write-Host "Potential threat found with process: " -ForegroundColor DarkYellow -NoNewline
@@ -147,9 +147,10 @@ foreach ($Process in $ProcessList){
                  Write-Host "     - csrss.exe should should be located in C:\windows\system32\csrss.exe.`n"
         }
 
-        if ($Process.ProcessName -eq "svchost.exe" -and ($Path -eq "C:\windows\system32\svchost.exe")){
-            {    }
-        elseif ($Path -ne "C:\windows\system32\svchost.exe")   
+        if ($Process.ProcessName -eq "svchost.exe" -and ($Path -eq "C:\windows\system32\svchost.exe")){    
+        }
+        
+        elseif ($Path -ne "C:\windows\system32\svchost.exe"){
                  
                  #csrss.exe: Path = C:\windows\system32\csrss.exe
                  Write-Host "Potential threat found with process: " -ForegroundColor DarkYellow -NoNewline
@@ -158,8 +159,8 @@ foreach ($Process in $ProcessList){
         }
 
         if ($Process.ProcessName -eq "svchost.exe" -and ($ParentProcessName -eq "services.exe")){
-            {     }
-        elseif ($ParentProcessName -ne "services.exe")   
+        }
+        elseif ($ParentProcessName -ne "services.exe"){
                  
                  #csrss.exe: Path = C:\windows\system32\csrss.exe
                  Write-Host "Potential threat found with process: " -ForegroundColor DarkYellow -NoNewline
